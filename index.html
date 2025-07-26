@@ -1,40 +1,1719 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - I love you Animation</title>
-  <link rel="stylesheet" href="love.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obed ID - Cloud Hosting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e63946; /* Merah Cerah */
+            --dark-red: #aa1c27;     /* Merah Gelap */
+            --light-red: #ff5a65;    /* Merah Muda */
+            --bg-color: #1a1a1a;     /* Latar Belakang Sangat Gelap */
+            --text-color: #f0f0f0;   /* Teks Putih Keabu-abuan */
+            --card-bg: rgba(30, 30, 30, 0.9); /* Latar Belakang Kartu Semi-transparan */
+            --border-color: rgba(230, 57, 70, 0.6); /* Warna Border dengan Opasitas */
+            --shadow-color: rgba(0, 0, 0, 0.6); /* Warna Bayangan Lebih Gelap */
+            --accent-blue: #00b4d8; /* Warna aksen biru */
+            --gold-star: #FFD700; /* Warna bintang emas */
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font lebih modern */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            background-image: url('https://img1.pixhost.to/images/7265/622772875_imgtmp.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 2.5rem; /* Padding sedikit lebih besar */
+            background-color: rgba(26, 26, 26, 0.95); /* Latar belakang container lebih gelap */
+            border-radius: 18px; /* Sudut lebih membulat */
+            box-shadow: 0 12px 35px var(--shadow-color); /* Bayangan lebih dalam */
+            border: 2px solid var(--primary-color);
+            backdrop-filter: blur(5px); /* Efek blur pada latar belakang */
+        }
+
+        .character-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .character-body {
+            font-size: 9rem; /* Ukuran lebih besar */
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 25px #ff0000, 0 0 40px var(--primary-color); /* Efek glow lebih kuat */
+            animation: glow 2s infinite alternate;
+        }
+
+        .logo-left, .logo-right {
+            position: absolute;
+            font-size: 3rem; /* Ukuran logo */
+            z-index: 3;
+            color: var(--accent-blue); /* Warna biru untuk ikon */
+            text-shadow: 0 0 12px var(--accent-blue);
+            display: flex; /* Menggunakan flexbox untuk menata ikon */
+            gap: 15px; /* Jarak antar ikon */
+            align-items: center;
+        }
+
+        .logo-left {
+            left: 10%; /* Posisi disesuaikan */
+            top: 30%;
+            transform: rotate(-18deg);
+        }
+
+        .logo-right {
+            right: 10%; /* Posisi disesuaikan */
+            top: 30%;
+            transform: rotate(18deg);
+        }
+
+        .title {
+            font-size: 3.8rem; /* Ukuran judul lebih besar */
+            font-weight: 700; /* Lebih tebal */
+            color: white;
+            text-shadow: 0 0 15px #ffffff;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px; /* Spasi huruf lebih lebar */
+            position: relative;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px; /* Posisi disesuaikan */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%; /* Lebar garis bawah lebih panjang */
+            height: 5px; /* Ketebalan garis bawah */
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            border-radius: 3px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ukuran min lebih kecil untuk fleksibilitas */
+            gap: 1.8rem; /* Jarak antar tombol lebih besar */
+            margin-top: 3.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn {
+            background: linear-gradient(145deg, var(--primary-color), var(--dark-red));
+            color: white;
+            border: none;
+            padding: 1.1rem 2.2rem; /* Padding sedikit lebih besar */
+            font-size: 1.15rem; /* Ukuran font sedikit lebih kecil */
+            font-weight: 600; /* Lebih tebal */
+            border-radius: 40px; /* Sudut lebih membulat */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 18px rgba(230, 57, 70, 0.5); /* Bayangan lebih kuat */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 65px; /* Tinggi minimum tombol */
+            text-decoration: none;
+            text-align: center; /* Pastikan teks di tengah */
+        }
+
+        .btn:hover {
+            transform: translateY(-7px); /* Efek hover lebih menonjol */
+            box-shadow: 0 12px 25px rgba(230, 57, 70, 0.7); /* Bayangan hover lebih kuat */
+            background: linear-gradient(145deg, var(--light-red), var(--primary-color)); /* Perubahan warna saat hover */
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 10px rgba(230, 57, 70, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* Efek kilau lebih jelas */
+            transition: 0.6s; /* Transisi lebih lambat */
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .content-section {
+            display: none;
+            margin-top: 2.5rem;
+            padding: 2.5rem;
+            background-color: rgba(0, 0, 0, 0.8); /* Latar belakang konten lebih gelap */
+            border-radius: 15px;
+            animation: fadeIn 0.6s ease-out; /* Animasi lebih halus */
+            position: relative;
+            z-index: 5;
+            border: 1px solid var(--border-color); /* Border pada content section */
+        }
+
+        .active-content {
+            display: block;
+        }
+
+        .product-list, .testimonial-grid, .admin-product-list, .admin-testimonial-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Ukuran min disesuaikan */
+            gap: 1.8rem; /* Jarak antar item lebih besar */
+        }
+
+        .product-item, .testimonial-item, .admin-item, .payment-method, .contact-item, .marketplace-item {
+            background-color: var(--card-bg); /* Menggunakan variabel card-bg */
+            border-radius: 12px; /* Sudut lebih membulat */
+            padding: 1.8rem; /* Padding lebih besar */
+            border: 1px solid var(--border-color);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Bayangan lebih kuat */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-item:hover, .marketplace-item:hover {
+            transform: translateY(-8px); /* Efek hover lebih menonjol */
+            box-shadow: 0 15px 25px rgba(230, 57, 70, 0.5); /* Bayangan hover lebih kuat */
+        }
+
+        .product-title {
+            font-size: 1.6rem; /* Ukuran font lebih besar */
+            color: var(--primary-color);
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-size: 1.3rem; /* Ukuran font lebih besar */
+            font-weight: bold;
+            margin-bottom: 1.2rem;
+            color: var(--accent-blue); /* Warna harga berbeda */
+        }
+
+        .product-description {
+            color: #c0c0c0; /* Warna teks deskripsi lebih terang */
+            margin-bottom: 1.2rem;
+            line-height: 1.6; /* Spasi baris lebih baik */
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 2.5rem; /* Jarak antar metode pembayaran lebih besar */
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            width: 320px; /* Lebar sedikit lebih besar */
+            text-align: center;
+            cursor: pointer; /* Menunjukkan bisa diklik */
+        }
+
+        .payment-icon {
+            font-size: 3.5rem; /* Ukuran ikon lebih besar */
+            margin-bottom: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* Jarak antar item kontak lebih besar */
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem; /* Jarak ikon dan teks */
+            padding: 1.2rem;
+            border-left: 6px solid var(--primary-color); /* Border lebih tebal */
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px); /* Efek geser saat hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-icon {
+            font-size: 1.8rem; /* Ukuran ikon lebih besar */
+            color: var(--primary-color);
+        }
+
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .marketplace-item {
+            text-align: center;
+        }
+
+        .marketplace-icon {
+            font-size: 3rem; /* Ukuran ikon lebih besar */
+            margin-bottom: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 15px #ff0000, 0 0 25px var(--primary-color);
+            }
+            to {
+                text-shadow: 0 0 25px #ff0000, 0 0 40px var(--primary-color), 0 0 50px var(--primary-color);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px); /* Animasi masuk dari bawah */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .moving-text-container {
+            margin: 3rem 0; /* Margin lebih besar */
+            padding: 1.2rem;
+            background-color: var(--primary-color);
+            border-radius: 8px; /* Sudut lebih membulat */
+            text-align: center;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .moving-text-container marquee {
+            font-size: 1.3rem; /* Ukuran font lebih besar */
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .testimonial-item {
+            display: flex;
+            flex-direction: column; /* Tata letak kolom */
+            align-items: center; /* Pusatkan konten */
+            text-align: center;
+            gap: 1rem;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.8rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .testimonial-img {
+            width: 90px; /* Ukuran gambar lebih besar */
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color); /* Border lebih tebal */
+            box-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+            margin-bottom: 1rem; /* Spasi antara gambar dan konten */
+        }
+
+        .testimonial-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--light-red);
+            font-size: 1.4rem;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: #d0d0d0;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        .testimonial-rating {
+            color: var(--gold-star);
+            font-size: 1.3rem; /* Ukuran rating lebih besar */
+            margin-top: 0.5rem;
+        }
+
+        .footer {
+            margin-top: 3rem; /* Margin lebih besar */
+            padding: 1.5rem;
+            text-align: center;
+            background-color: rgba(0,0,0,0.8); /* Latar belakang footer lebih gelap */
+            border-radius: 8px;
+            width: 100%;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+        }
+
+        .footer p {
+            margin: 0.6rem 0;
+            color: #b0b0b0;
+        }
+
+        /* Testimonial Form Styles */
+        .testimonial-form {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--primary-color);
+            margin-top: 3.5rem; /* Margin lebih besar */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem; /* Jarak antar grup form lebih besar */
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem; /* Jarak label dan input */
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            padding: 1rem; /* Padding lebih besar */
+            border-radius: 8px; /* Sudut lebih membulat */
+            border: 1px solid #555;
+            background-color: #2a2a2a; /* Warna input lebih gelap */
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.3);
+            outline: none;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 0.6rem; /* Jarak antar bintang */
+            font-size: 1.8rem; /* Ukuran bintang lebih besar */
+            color: #777; /* Warna abu-abu untuk bintang tidak aktif */
+            cursor: pointer;
+        }
+
+        .star-rating .fas {
+            color: var(--gold-star);
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Efek shadow pada bintang aktif */
+        }
+
+        /* Admin Panel Styles */
+        .admin-panel {
+            margin-top: 2.5rem;
+            padding: 2.5rem; /* Padding konsisten */
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            animation: fadeIn 0.6s ease-out;
+            position: relative;
+            z-index: 15;
+            border: 1px solid var(--border-color);
+        }
+
+        .admin-panel h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.8rem;
+            font-size: 2.2rem;
+            text-align: center;
+        }
+
+        .admin-panel .admin-section {
+            margin-top: 2.5rem; /* Spasi antar section */
+            padding-top: 2rem; /* Padding di atas garis */
+            border-top: 1px solid rgba(255,255,255,0.15); /* Garis pemisah lebih jelas */
+        }
+
+        .admin-panel .admin-section:first-of-type {
+            border-top: none; /* Hapus border top untuk section pertama */
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .admin-panel .admin-section h3 {
+            color: var(--light-red);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .admin-panel .form-container {
+            gap: 1.2rem; /* Mengurangi gap di form admin agar lebih padat */
+        }
+
+        .admin-panel .form-group {
+            margin-bottom: 0.8rem; /* Spasi antar form group */
+        }
+
+        .admin-panel .form-group label {
+            font-size: 1rem; /* Ukuran label sedikit lebih kecil */
+            margin-bottom: 0.4rem;
+        }
+
+        .admin-panel .form-group input,
+        .admin-panel .form-group textarea {
+            width: 100%; /* Lebar penuh */
+            box-sizing: border-box; /* Pastikan padding termasuk dalam lebar */
+            padding: 0.8rem; /* Padding input lebih kecil */
+            font-size: 0.95rem;
+            background-color: #222; /* Warna input lebih gelap */
+            border: 1px solid #444;
+        }
+
+        .admin-panel .form-group input:focus,
+        .admin-panel .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.3);
+        }
+
+        .admin-panel .form-group button {
+            width: auto;
+            padding: 0.8rem 1.5rem; /* Padding tombol lebih kecil */
+            font-size: 1rem;
+            margin-top: 1rem;
+            border-radius: 30px;
+            display: inline-block; /* Agar tombol bisa berdampingan */
+            margin-right: 10px; /* Spasi antar tombol */
+        }
+
+        .admin-product-list, .admin-testimonial-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .admin-item {
+            background-color: rgba(30, 30, 30, 0.9);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .admin-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .admin-item p {
+            color: #c0c0c0;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+            word-wrap: break-word; /* Memastikan teks panjang tidak meluber */
+        }
+
+        .admin-item p a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .admin-item p a:hover {
+            text-decoration: underline;
+        }
+
+        .admin-item .btn { /* Menggunakan gaya .btn untuk tombol di admin-item */
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            margin-top: 10px; /* Spasi dari konten di atasnya */
+            margin-right: 8px; /* Spasi antar tombol */
+            min-height: auto; /* Override min-height dari .btn global */
+            box-shadow: none; /* Hapus shadow default .btn */
+            transition: all 0.2s ease;
+        }
+
+        .admin-item .edit-btn {
+            background-color: var(--accent-blue); /* Warna biru */
+            color: white;
+            border: none;
+        }
+        .admin-item .edit-btn:hover {
+            background-color: #0097b7;
+            transform: translateY(-2px);
+        }
+
+        .admin-item .delete-btn {
+            background-color: var(--dark-red); /* Warna merah gelap */
+            color: white;
+            border: none;
+        }
+        .admin-item .delete-btn:hover {
+            background-color: #8a1620;
+            transform: translateY(-2px);
+        }
+
+        /* Admin Login Styles */
+        .admin-login-form {
+            background-color: rgba(30, 30, 30, 0.95); /* Latar belakang lebih gelap */
+            padding: 3rem; /* Padding lebih besar */
+            border-radius: 15px;
+            border: 1px solid var(--primary-color);
+            max-width: 450px; /* Lebar maksimal lebih besar */
+            margin: 3rem auto; /* Margin lebih besar */
+            display: none; /* Hidden by default */
+            position: relative;
+            z-index: 20;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .admin-login-form.active {
+            display: block;
+        }
+
+        .admin-login-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem; /* Margin lebih besar */
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        .admin-login-form .form-group input {
+            width: 100%; /* Lebar penuh */
+            box-sizing: border-box;
+        }
+
+        .admin-login-form .btn {
+            width: 100%;
+            margin-top: 1.5rem; /* Margin lebih besar */
+            padding: 1.2rem 2rem; /* Padding lebih besar */
+            font-size: 1.2rem;
+        }
+
+        /* Audio Toggle Button */
+        #soundToggle {
+            background-color: rgba(0, 180, 216, 0.8); /* Warna biru */
+            box-shadow: 0 4px 10px rgba(0, 180, 216, 0.4);
+            border-radius: 50%; /* Bentuk bulat */
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 100; /* Pastikan di atas semua elemen */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #soundToggle:hover {
+            background-color: rgba(0, 150, 180, 0.9);
+            transform: scale(1.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .container {
+                padding: 1.5rem;
+            }
+            .character-body {
+                font-size: 6rem;
+            }
+            .logo-left, .logo-right {
+                font-size: 2rem;
+                gap: 10px;
+            }
+            .logo-left {
+                left: 5%; /* Sesuaikan posisi untuk layar kecil */
+            }
+            .logo-right {
+                right: 5%; /* Sesuaikan posisi untuk layar kecil */
+            }
+            .title {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            .title::after {
+                width: 70%;
+            }
+            .buttons {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                min-height: 55px;
+            }
+            .content-section {
+                padding: 1.5rem;
+            }
+            .product-list, .testimonial-grid, .admin-product-list, .admin-testimonial-list {
+                grid-template-columns: 1fr;
+            }
+            .product-item, .testimonial-item, .admin-item, .payment-method, .contact-item, .marketplace-item {
+                padding: 1.2rem;
+            }
+            .product-title {
+                font-size: 1.3rem;
+            }
+            .product-price {
+                font-size: 1.1rem;
+            }
+            .payment-method {
+                width: 100%;
+            }
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .contact-item div {
+                margin-top: 0.5rem;
+            }
+            .marketplace-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            .moving-text-container marquee {
+                font-size: 1rem;
+            }
+            .testimonial-form {
+                padding: 1.5rem;
+            }
+            .admin-login-form {
+                padding: 2rem;
+                max-width: 90%;
+            }
+            .admin-panel h2, .admin-panel .admin-section h3, .admin-login-form h2 {
+                font-size: 1.8rem;
+            }
+            .admin-panel .form-group button {
+                width: 100%; /* Tombol admin di mobile jadi full width */
+                margin-right: 0;
+                margin-bottom: 10px; /* Spasi antar tombol */
+            }
+            .admin-panel .form-group button:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .container {
+                padding: 3rem;
+            }
+            .character-body {
+                font-size: 10rem;
+            }
+            .logo-left {
+                left: 10%;
+                top: 25%;
+                font-size: 4rem;
+            }
+            .logo-right {
+                right: 10%;
+                top: 25%;
+                font-size: 4rem;
+            }
+            .title {
+                font-size: 4.5rem;
+            }
+            .buttons {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 2rem;
+            }
+            .btn {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.3rem;
+            }
+            .product-list {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            .payment-methods {
+                flex-direction: row;
+                justify-content: center;
+            }
+            .payment-method {
+                width: 250px;
+            }
+            .contact-info {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            .contact-item {
+                width: 45%; /* Adjust as needed */
+            }
+            .marketplace-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            .admin-product-list, .admin-testimonial-list {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div class="container">
-  <svg class="svg-container" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200">
-    <line class="line line--left" x1="10" y1="17" x2="10" y2="183"> </line>
-    <line class="line line--rght" x1="490" y1="17" x2="490" y2="183"> </line>
-    <g>
-      <path class="lttr lttr--I" d="M42.2,73.9h11.4v52.1H42.2V73.9z"></path>
-      <path class="lttr lttr--L" d="M85.1,73.9h11.4v42.1h22.8v10H85.1V73.9z"></path>
-      <path class="lttr lttr--O" d="M123.9,100c0-15.2,11.7-26.9,27.2-26.9s27.2,11.7,27.2,26.9s-11.7,26.9-27.2,26.9S123.9,115.2,123.9,100zM166.9,100c0-9.2-6.8-16.5-15.8-16.5c-9,0-15.8,7.3-15.8,16.5s6.8,16.5,15.8,16.5C160.1,116.5,166.9,109.2,166.9,100z"> </path>
-      <path class="lttr lttr--V" d="M180.7,73.9H193l8.4,22.9c1.7,4.7,3.5,9.5,5,14.2h0.1c1.7-4.8,3.4-9.4,5.2-14.3l8.6-22.8h11.7l-19.9,52.1h-11.5L180.7,73.9z"></path>
-      <path class="lttr lttr--E" d="M239.1,73.9h32.2v10h-20.7v10.2h17.9v9.5h-17.9v12.4H272v10h-33V73.9z"></path>
-      <path class="lttr lttr--Y" d="M315.8,102.5l-20.1-28.6H309l6.3,9.4c2,3,4.2,6.4,6.3,9.6h0.1c2-3.2,4.1-6.4,6.3-9.6l6.3-9.4h12.9l-19.9,28.5v23.6h-11.4V102.5z"></path>
-      <path class="lttr lttr--O2" d="M348.8,100c0-15.2,11.7-26.9,27.2-26.9c15.5,0,27.2,11.7,27.2,26.9s-11.7,26.9-27.2,26.9C360.5,126.9,348.8,115.2,348.8,100z M391.8,100c0-9.2-6.8-16.5-15.8-16.5c-9,0-15.8,7.3-15.8,16.5s6.8,16.5,15.8,16.5C385,116.5,391.8,109.2,391.8,100z"></path>
-      <path class="lttr lttr--U" d="M412.4,101.1V73.9h11.4v26.7c0,10.9,2.4,15.9,11.5,15.9c8.4,0,11.4-4.6,11.4-15.8V73.9h11v26.9c0,7.8-1.1,13.5-4,17.7c-3.7,5.3-10.4,8.4-18.7,8.4c-8.4,0-15.1-3.1-18.8-8.5C413.4,114.2,412.4,108.5,412.4,101.1z"></path>
-    </g>
-  </svg>
-  <div class="mo-container"> </div>
-</div>
+  
+    <div class="container">
+        <div class="character-container">
+            <div class="character-body">😈</div>
+            <div class="logo-left">
+                <i class="fas fa-cloud fa-beat"></i>
+                <i class="fas fa-server fa-beat"></i>
+            </div>
+            <div class="logo-right">
+                <i class="fas fa-code fa-beat"></i>
+                <i class="fas fa-globe fa-beat"></i>
+            </div>
+            <h1 class="title">Obed ID</h1>
+        </div>
 
-<audio class="blup" style="display: none">
-  <source src="https://www.freesound.org/data/previews/265/265115_4373976-lq.mp3" type="audio/ogg">
-</audio>
-<audio class="blop" style="display: none">
-  <source src="https://www.freesound.org/data/previews/265/265115_4373976-lq.mp3" type="audio/ogg">
-</audio>
-<div class="sound">sound</div>
-<!-- partial -->
-  <script src='https://cdn.jsdelivr.net/mojs/latest/mo.min.js'></script><script  src="love.js"></script>
+        <div class="buttons">
+            <button class="btn" onclick="showContent('products')">
+                <i class="fas fa-list-ul" style="margin-right: 10px;"></i> List Produk
+            </button>
+            <button class="btn" onclick="showContent('payment')">
+                <i class="fas fa-money-bill-wave" style="margin-right: 10px;"></i> Pembayaran
+            </button>
+            <button class="btn" onclick="showContent('contact')">
+                <i class="fas fa-headset" style="margin-right: 10px;"></i> Kontak Penjual
+            </button>
+            <button class="btn" onclick="showContent('marketplace')">
+                <i class="fas fa-store" style="margin-right: 10px;"></i> Marketplace
+            </button>
+            <button class="btn" onclick="showContent('testimonial')">
+                <i class="fas fa-comment-alt" style="margin-right: 10px;"></i> Rating & Testimonial
+            </button>
+            <button class="btn" onclick="showAdminLogin()">
+                <i class="fas fa-user-shield" style="margin-right: 10px;"></i> Admin Panel
+            </button>
+        </div>
 
+        <!-- Products Section -->
+        <div id="products" class="content-section">
+            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Daftar Produk Kami</h2>
+            <div class="product-list" id="productList">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div id="payment" class="content-section">
+            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Metode Pembayaran</h2>
+            <div class="payment-methods" id="paymentMethodsDisplay">
+                <!-- Payment methods will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="content-section">
+            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Hubungi Kami</h2>
+            <div class="contact-info" id="contactInfoDisplay">
+                <!-- Contact info will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Marketplace Section -->
+        <div id="marketplace" class="content-section">
+            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Temukan Kami di Marketplace</h2>
+            <div class="marketplace-grid" id="marketplaceDisplay">
+                <!-- Marketplace links will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Moving Thanks Text -->
+        <div class="moving-text-container" id="thanksText">
+            <marquee behavior="scroll" direction="left" scrollamount="10">
+                Terimakasih telah mempercayai Obed Store ID - Pelayanan terbaik untuk Anda! - Kepuasan Anda Prioritas Kami
+            </marquee>
+        </div>
+
+        <!-- Testimonial Section -->
+        <div id="testimonial" class="content-section">
+            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Apa Kata Pelanggan Kami</h2>
+            <div class="testimonial-grid" id="testimonialGrid">
+                <!-- Testimonials will be loaded here by JavaScript -->
+            </div>
+            
+            <!-- Testimonial Form -->
+            <div class="testimonial-form" style="margin-top: 3rem;">
+                <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Berikan Testimoni Anda</h2>
+                <form id="testimonialForm" class="form-container">
+                    <div class="form-group">
+                        <label for="testimonialName">Nama:</label>
+                        <input type="text" id="testimonialName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="testimonialImage">Foto Profil (Opsional):</label>
+                        <input type="file" id="testimonialImage" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="testimonialComment">Testimoni:</label>
+                        <textarea id="testimonialComment" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Rating:</label>
+                        <div class="star-rating" id="testimonialRating">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Kirim Testimoni</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Admin Login Form -->
+        <div id="adminLoginForm" class="admin-login-form">
+            <h2>Login Admin</h2>
+            <form id="loginForm" class="form-container">
+                <div class="form-group">
+                    <label for="adminUsername">Username:</label>
+                    <input type="text" id="adminUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password:</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <!-- Admin Panel Section -->
+        <div id="adminPanel" class="content-section admin-panel">
+            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Admin Panel</h2>
+            <button class="btn" style="background-color: var(--accent-blue); margin-bottom: 1.5rem;" onclick="logoutAdmin()">
+                <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Logout
+            </button>
+
+            <!-- Admin Section: Kelola Produk -->
+            <div class="admin-section">
+                <h3>Kelola Produk</h3>
+                <form id="adminProductForm" class="form-container">
+                    <input type="hidden" id="adminProductId">
+                    <div class="form-group">
+                        <label for="adminProductName">Nama Produk:</label>
+                        <input type="text" id="adminProductName" placeholder="Nama Produk" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminProductPrice">Harga:</label>
+                        <input type="text" id="adminProductPrice" placeholder="Harga (contoh: Rp 1.000)" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminProductDescription">Deskripsi:</label>
+                        <textarea id="adminProductDescription" placeholder="Deskripsi Produk" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminProductOrderLink">Link Pesan:</label>
+                        <input type="url" id="adminProductOrderLink" placeholder="Contoh: https://wa.me/..." required>
+                    </div>
+                    <button type="submit" id="adminProductSubmitBtn" class="btn">Tambah Produk</button>
+                    <button type="button" id="adminProductCancelBtn" class="btn" style="background-color: gray;">Batal Edit</button>
+                </form>
+                <div class="admin-product-list" id="adminProductList">
+                    <!-- Admin products will be loaded here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Admin Section: Kelola Pembayaran -->
+            <div class="admin-section">
+                <h3>Kelola Pembayaran</h3>
+                <form id="adminPaymentForm" class="form-container">
+                    <div class="form-group">
+                        <label for="adminPaymentDanaNumber">Nomor Dana:</label>
+                        <input type="text" id="adminPaymentDanaNumber" placeholder="Contoh: 081234567890">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPaymentQrisLink">Link QRIS (opsional):</label>
+                        <input type="text" id="adminPaymentQrisLink" placeholder="Contoh: https://wa.me/6287774870790?text=SEND%20QR">
+                    </div>
+                    <button type="submit" class="btn">Simpan Pembayaran</button>
+                </form>
+            </div>
+
+            <!-- Admin Section: Kelola Kontak -->
+            <div class="admin-section">
+                <h3>Kelola Kontak</h3>
+                <form id="adminContactForm" class="form-container">
+                    <div class="form-group">
+                        <label for="adminContactEmail">Email:</label>
+                        <input type="email" id="adminContactEmail" placeholder="Contoh: email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminContactPhone">Telepon/WhatsApp:</label>
+                        <input type="text" id="adminContactPhone" placeholder="Contoh: 081234567890">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminContactTelegram">Telegram Username/Link:</label>
+                        <input type="text" id="adminContactTelegram" placeholder="Contoh: @username atau https://t.me/username">
+                    </div>
+                    <button type="submit" class="btn">Simpan Kontak</button>
+                </form>
+            </div>
+
+            <!-- Admin Section: Kelola Marketplace -->
+            <div class="admin-section">
+                <h3>Kelola Marketplace</h3>
+                <form id="adminMarketplaceForm" class="form-container">
+                    <div class="form-group">
+                        <label for="adminMarketplaceWhatsappGroup">Link Grup WhatsApp:</label>
+                        <input type="url" id="adminMarketplaceWhatsappGroup" placeholder="Contoh: https://chat.whatsapp.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminMarketplaceTiktokShop">Link TikTok Shop:</label>
+                        <input type="url" id="adminMarketplaceTiktokShop" placeholder="Contoh: https://tiktok.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminMarketplaceWhatsappChannel">Link Saluran WhatsApp:</label>
+                        <input type="url" id="adminMarketplaceWhatsappChannel" placeholder="Contoh: https://whatsapp.com/channel/...">
+                    </div>
+                    <button type="submit" class="btn">Simpan Marketplace</button>
+                </form>
+            </div>
+
+            <!-- Admin Section: Kelola Testimoni -->
+            <div class="admin-section">
+                <h3>Kelola Testimoni</h3>
+                <button class="btn delete-btn" onclick="deleteAllTestimonials()" style="margin-bottom: 1.5rem;">
+                    <i class="fas fa-trash-alt" style="margin-right: 10px;"></i> Hapus Semua Testimoni
+                </button>
+                <div class="admin-testimonial-list" id="adminTestimonialList">
+                    <!-- Admin testimonials will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2023 Obed Store ID - All Rights Reserved</p>
+            <p>Created by Obed Store ID</p>
+        </footer>
+    </div>
+
+    <!-- Audio Controls -->
+    <audio id="bgAudio" loop>
+        <source src="https://files.catbox.moe/x7mkwn.mpeg" type="audio/mpeg">
+    </audio>
+    <button id="soundToggle" class="btn" style="position: fixed; bottom: 20px; right: 20px;">
+        <i class="fas fa-volume-mute" id="soundIcon"></i>
+    </button>
+
+    <script>
+        // --- Data Storage (Simulated Backend using localStorage) ---
+        const STORAGE_KEY_PRODUCTS = 'obed_products';
+        const STORAGE_KEY_TESTIMONIALS = 'obed_testimonials';
+        const STORAGE_KEY_ADMIN_LOGGED_IN = 'obed_admin_logged_in'; // New key for login status
+        const STORAGE_KEY_PAYMENT = 'obed_payment'; // New key for payment data
+        const STORAGE_KEY_CONTACT = 'obed_contact'; // New key for contact data
+        const STORAGE_KEY_MARKETPLACE = 'obed_marketplace'; // New key for marketplace data
+
+        // Admin Credentials (VERY INSECURE - FOR DEMO ONLY)
+        const ADMIN_USERNAME = 'salma'; // Updated Username
+        const ADMIN_PASSWORD = 'ilovesalma'; // Updated Password
+
+        // --- Data Getters/Setters ---
+        function getProducts() {
+            const products = localStorage.getItem(STORAGE_KEY_PRODUCTS);
+            return products ? JSON.parse(products) : [
+                // Initial dummy products if localStorage is empty
+                { id: 'prod1', name: 'Panel Petrodactyl', price: 'Rp 1.000-10.000/bulan', description: 'Masa Aktif 30 hari<br>Garansi 20 Hari<br>Note: Claim garansi wajib bawa bukti transfer dan akun panel', orderLink: 'https://wa.me/6287774870790?text=HALO%0ASAYA%20MAU%20ORDER%20PANEL%20PETRODACTYL' },
+                { id: 'prod2', name: 'Reseller Panel Basic', price: 'Rp 11.999/bulan', description: 'Masa aktif 30 Hari<br>Garansi 30 hari<br>Masuk ke grup reseller', orderLink: 'https://wa.me/6287774870790?text=HALO%0ASAYA%20MAU%20ORDER%20RESELLER%20PANEL%20BASIC' },
+                { id: 'prod3', name: 'Reseller Panel VIP', price: 'Rp 15.000/Lifetime', description: 'Sekali Pembayaran<br>Masa aktif seumur hidup<br>Bebas create panel', orderLink: 'https://wa.me/6287774870790?text=HALO%0ASAYA%20MAU%20ORDER%20RESELLER%20PANEL%20VIP' },
+                { id: 'prod4', name: 'Nomor Virtual WA', price: 'Rp 5.000/Lifetime', description: 'Nomor save 1 minggu+<br>1X verif<br>Garansi 24jam 1X replace', orderLink: 'https://wa.me/6287774870790?text=HALO%0ASAYA%20MAU%20ORDER%20NOMOR%20VIRTUAL%20WA' },
+                { id: 'prod5', name: 'Jasa Bug WA', price: 'Rp 3.000/Nomor', description: 'Delay<br>Force Close<br>Blank', orderLink: 'https://wa.me/6287774870790?text=HALO%0ASAYA%20MAU%20ORDER%20JASA%20BUG%20WA' },
+                { id: 'prod6', name: 'Script Bug WA Kemz Crasher v-5.0.0', price: 'Rp 15.000', description: 'Free update<br>Free Panel<br>Full enc (no database)', orderLink: 'https://wa.me/6287774870790?text=HALO%0ASAYA%20MAU%20ORDER%20SCRIPT%20BUG%20WA%20KEMZ%20CRASHER%20V-5.0.0' },
+                { id: 'prod7', name: 'Domain My.id', price: 'Rp 5.000/Tahun', description: 'Full Akses<br>Free SSL<br>Free config to cloudflare dll', orderLink: 'https://wa.me/6287774870790?text=HALO%0ASAYA%20MAU%20ORDER%20DOMAIN%20MY.ID' },
+                { id: 'prod8', name: 'Subdomain', price: 'Rp 2.000/3 bulan', description: 'gunx.my.id<br>byteid.my.id<br>1X replace', orderLink: 'https://wa.me/6287774870790?text=HALO%0ASAYA%20MAU%20ORDER%20SUBDOMAIN' }
+            ];
+        }
+
+        function saveProducts(products) {
+            localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
+        }
+
+        function getTestimonials() {
+            const testimonials = localStorage.getItem(STORAGE_KEY_TESTIMONIALS);
+            // FIX: Mengembalikan data dari localStorage jika ada, jika tidak, array kosong.
+            // Data dummy awal untuk testimoni dihapus agar hanya testimoni yang ditambahkan pengguna yang muncul.
+            return testimonials ? JSON.parse(testimonials) : []; 
+        }
+
+        function saveTestimonials(testimonials) {
+            localStorage.setItem(STORAGE_KEY_TESTIMONIALS, JSON.stringify(testimonials));
+        }
+
+        function getPaymentData() {
+            const payment = localStorage.getItem(STORAGE_KEY_PAYMENT);
+            return payment ? JSON.parse(payment) : { danaNumber: '083138480510', qrisLink: 'https://wa.me/6287774870790?text=SEND%20QR' };
+        }
+
+        function savePaymentData(paymentData) {
+            localStorage.setItem(STORAGE_KEY_PAYMENT, JSON.stringify(paymentData));
+        }
+
+        function getContactData() {
+            const contact = localStorage.getItem(STORAGE_KEY_CONTACT);
+            return contact ? JSON.parse(contact) : { email: 'obedpurba01@gmail.com', phone: '0877-7487-0790', telegram: 'https://t.me/obedstore_id' };
+        }
+
+        function saveContactData(contactData) {
+            localStorage.setItem(STORAGE_KEY_CONTACT, JSON.stringify(contactData));
+        }
+
+        function getMarketplaceData() {
+            const marketplace = localStorage.getItem(STORAGE_KEY_MARKETPLACE);
+            return marketplace ? JSON.parse(marketplace) : { whatsappGroup: 'https://chat.whatsapp.com/J7OA6CKEdYVCzB7bzQ9Vsj', tiktokShop: 'https://tiktok.com/obed5133', whatsappChannel: 'https://whatsapp.com/channel/0029Vb6qmUx8PgsOHpAxMr1U' };
+        }
+
+        function saveMarketplaceData(marketplaceData) {
+            localStorage.setItem(STORAGE_KEY_MARKETPLACE, JSON.stringify(marketplaceData));
+        }
+
+        // --- General UI Functions ---
+        function showContent(contentId) {
+            const contentSections = document.querySelectorAll('.content-section');
+            contentSections.forEach(section => {
+                section.classList.remove('active-content');
+                section.style.display = 'none'; // Ensure all are hidden
+            });
+            
+            // Hide admin login form if it's active
+            document.getElementById('adminLoginForm').classList.remove('active');
+            document.getElementById('adminLoginForm').style.display = 'none'; // Ensure login form is hidden
+
+            const targetContent = document.getElementById(contentId);
+            if (targetContent) {
+                targetContent.classList.add('active-content');
+                targetContent.style.display = 'block'; // Ensure display is block for active content
+            }
+            
+            // Special handling for content sections to load data
+            if (contentId === 'adminPanel') {
+                // Only load admin data if user is actually logged in (checked by showAdminLogin before calling this)
+                if (localStorage.getItem(STORAGE_KEY_ADMIN_LOGGED_IN) === 'true') {
+                    loadAdminProducts();
+                    loadAdminTestimonials();
+                    loadAdminPaymentForm();
+                    loadAdminContactForm();
+                    loadAdminMarketplaceForm();
+                } else {
+                    // If somehow adminPanel is called without login, redirect to login
+                    showAdminLogin();
+                    return; // Stop execution
+                }
+            } else if (contentId === 'products') {
+                loadProducts();
+            } else if (contentId === 'testimonial') {
+                loadTestimonials();
+            } else if (contentId === 'payment') {
+                loadPaymentDisplay();
+            } else if (contentId === 'contact') {
+                loadContactDisplay();
+            } else if (contentId === 'marketplace') {
+                loadMarketplaceDisplay();
+            }
+
+            if (targetContent) {
+                targetContent.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Close content when clicking outside (excluding buttons and content itself)
+        document.addEventListener('click', function(event) {
+            // Check if the click target is inside any content section or the admin login form
+            const isInsideContent = event.target.closest('.content-section');
+            const isInsideLoginForm = event.target.closest('.admin-login-form');
+            const isButton = event.target.closest('.btn');
+
+            // If click is outside all active content sections, login form, and buttons, then hide all content
+            if (!isInsideContent && !isInsideLoginForm && !isButton) {
+                const contentSections = document.querySelectorAll('.content-section');
+                contentSections.forEach(section => {
+                    section.classList.remove('active-content');
+                    section.style.display = 'none'; // Ensure all are hidden
+                });
+                document.getElementById('adminLoginForm').classList.remove('active'); // Also hide login form
+                document.getElementById('adminLoginForm').style.display = 'none'; // Ensure login form is hidden
+            }
+        });
+
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Nomor pembayaran disalin: ' + text);
+            }).catch(function(err) {
+                console.error('Gagal menyalin: ', err);
+            });
+        }
+
+        // --- Audio Controls ---
+        const bgAudio = document.getElementById('bgAudio');
+        const soundToggle = document.getElementById('soundToggle');
+        const soundIcon = document.getElementById('soundIcon');
+        
+        // Function to attempt playing audio
+        function attemptAutoplay() {
+            bgAudio.play()
+                .then(() => {
+                    // Autoplay was successful
+                    soundIcon.classList.remove('fa-volume-mute');
+                    soundIcon.classList.add('fa-volume-up');
+                    console.log('Audio autoplayed successfully.');
+                })
+                .catch(error => {
+                    // Autoplay was prevented
+                    console.log('Audio autoplay prevented:', error.message);
+                    // Keep mute icon if autoplay failed
+                    soundIcon.classList.remove('fa-volume-up');
+                    soundIcon.classList.add('fa-volume-mute');
+                    // Optionally, show a message to the user to click the play button
+                });
+        }
+
+        // Try to autoplay when the page loads
+        // Use DOMContentLoaded to ensure the audio element is available
+        document.addEventListener('DOMContentLoaded', attemptAutoplay);
+
+        // Also try to autoplay on the first user interaction (e.g., any click on the document)
+        // This is a common workaround for autoplay policies
+        document.addEventListener('click', function firstInteractionAutoplay() {
+            attemptAutoplay();
+            // Remove this listener after the first attempt to avoid multiple calls
+            document.removeEventListener('click', firstInteractionAutoplay);
+        });
+
+
+        // Existing sound toggle functionality
+        soundToggle.addEventListener('click', function() {
+            if (bgAudio.paused) {
+                bgAudio.play();
+                soundIcon.classList.remove('fa-volume-mute');
+                soundIcon.classList.add('fa-volume-up');
+            } else {
+                bgAudio.pause();
+                soundIcon.classList.remove('fa-volume-up');
+                soundIcon.classList.add('fa-volume-mute');
+            }
+        });
+
+        // --- Product Display (Frontend) ---
+        function loadProducts() {
+            const productListDiv = document.getElementById('productList');
+            productListDiv.innerHTML = ''; // Clear existing products
+            const products = getProducts();
+
+            products.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('product-item');
+                productItem.innerHTML = `
+                    <h3 class="product-title">${product.name}</h3>
+                    <div class="product-price">${product.price}</div>
+                    <div class="product-description">${product.description}</div>
+                    <a href="${product.orderLink}" class="btn" style="padding: 0.5rem 1rem; font-size: 1rem; text-decoration: none;">Pesan Sekarang</a>
+                `;
+                productListDiv.appendChild(productItem);
+            });
+        }
+
+        // --- Payment Display (Frontend) ---
+        function loadPaymentDisplay() {
+            const paymentData = getPaymentData();
+            const paymentMethodsDisplay = document.getElementById('paymentMethodsDisplay');
+            paymentMethodsDisplay.innerHTML = `
+                <div class="payment-method" onclick="copyToClipboard('${paymentData.danaNumber}')">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Dana</h3>
+                    <p>Nomor: ${paymentData.danaNumber}</p>
+                    <p>Klik Untuk Copy</p>
+                </div>
+                <div class="payment-method" onclick="window.open('${paymentData.qrisLink}')">
+                    <div class="payment-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>QRIS</h3>
+                    <p>Klik untuk meminta qris ke penjual</p>
+                </div>
+            `;
+        }
+
+        // --- Contact Display (Frontend) ---
+        function loadContactDisplay() {
+            const contactData = getContactData();
+            const contactInfoDisplay = document.getElementById('contactInfoDisplay');
+            contactInfoDisplay.innerHTML = `
+                <div class="contact-item" onclick="window.location.href='mailto:${contactData.email}'">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:${contactData.email}" style="color: inherit; text-decoration: none;">${contactData.email}</a></p>
+                    </div>
+                </div>
+                <div class="contact-item" onclick="window.location.href='tel:${contactData.phone}'">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Telepon</h3>
+                        <p><a href="tel:${contactData.phone}" style="color: inherit; text-decoration: none;">${contactData.phone}</a></p>
+                    </div>
+                </div>
+                <div class="contact-item" onclick="window.open('${contactData.telegram}')">
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <div>
+                        <h3>Telegram</h3>
+                        <p><a href="${contactData.telegram}" style="color: inherit; text-decoration: none;">${contactData.telegram.includes('@') ? contactData.telegram : 'Link Telegram'}</a></p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- Marketplace Display (Frontend) ---
+        function loadMarketplaceDisplay() {
+            const marketplaceData = getMarketplaceData();
+            const marketplaceDisplay = document.getElementById('marketplaceDisplay');
+            marketplaceDisplay.innerHTML = `
+                <div class="marketplace-item" onclick="window.open('${marketplaceData.whatsappGroup}')">
+                    <div class="marketplace-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Grup Whatsapp</h3>
+                    <p>Obed Store ID Official</p>
+                </div>
+                <div class="marketplace-item" onclick="window.open('${marketplaceData.tiktokShop}')">
+                    <div class="marketplace-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>TikTok Shop</h3>
+                    <p>Obed ID Official</p>
+                </div>
+                <div class="marketplace-item" onclick="window.open('${marketplaceData.whatsappChannel}')">
+                    <div class="marketplace-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Whatsapp Channel</h3>
+                    <p>Obed Store ID</p>
+                </div>
+            `;
+        }
+
+        // --- Testimonial Display & Submission (Frontend) ---
+        function loadTestimonials() {
+            const testimonialGrid = document.getElementById('testimonialGrid');
+            testimonialGrid.innerHTML = ''; // Clear existing testimonials
+            const testimonials = getTestimonials();
+
+            testimonials.forEach(testimonial => {
+                const testimonialItem = document.createElement('div');
+                testimonialItem.classList.add('testimonial-item');
+                // Gunakan gambar yang diunggah jika ada, jika tidak gunakan gambar default
+                const imageUrl = testimonial.imageUrl || 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/93529889-06f7-41be-b25f-cea1c34944be.png';
+                testimonialItem.innerHTML = `
+                    <img src="${imageUrl}" alt="Testimoni ${testimonial.name}" class="testimonial-img">
+                    <div class="testimonial-content">
+                        <h3>${testimonial.name}</h3>
+                        <p>"${testimonial.comment}"</p>
+                        <div class="testimonial-rating">
+                            ${'⭐'.repeat(testimonial.rating)}${'☆'.repeat(5 - testimonial.rating)}
+                        </div>
+                    </div>
+                `;
+                testimonialGrid.prepend(testimonialItem); // Add new testimonials to the top
+            });
+        }
+
+        document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('testimonialName').value;
+            const comment = document.getElementById('testimonialComment').value;
+            // FIX: Correctly get the rating by counting active stars
+            const selectedStars = document.querySelectorAll('#testimonialRating .fas').length;
+            const rating = selectedStars;
+            const imageFile = document.getElementById('testimonialImage').files[0]; // Get the selected file
+
+            if (!name || !comment || rating === 0) {
+                alert('Harap lengkapi semua kolom dan berikan rating.');
+                return;
+            }
+
+            // Handle image upload
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const imageUrl = event.target.result; // This is the Base64 Data URL
+
+                    const newTestimonial = {
+                        id: 'test' + Date.now(), // Simple unique ID
+                        name: name,
+                        comment: comment,
+                        rating: rating,
+                        imageUrl: imageUrl // Store the Base64 image
+                    };
+
+                    const testimonials = getTestimonials();
+                    testimonials.push(newTestimonial);
+                    saveTestimonials(testimonials);
+                    
+                    alert('Terima kasih atas testimoni Anda!');
+                    document.getElementById('testimonialForm').reset();
+                    resetStarRating();
+                    loadTestimonials(); // Reload to show the new testimonial
+                };
+                reader.readAsDataURL(imageFile); // Read the file as a Data URL
+            } else {
+                // If no image is uploaded, save testimonial without image URL
+                const newTestimonial = {
+                    id: 'test' + Date.now(),
+                    name: name,
+                    comment: comment,
+                    rating: rating,
+                    imageUrl: '' // No image uploaded
+                };
+
+                const testimonials = getTestimonials();
+                testimonials.push(newTestimonial);
+                saveTestimonials(testimonials);
+                
+                alert('Terima kasih atas testimoni Anda!');
+                document.getElementById('testimonialForm').reset();
+                resetStarRating();
+                loadTestimonials(); // Reload to show the new testimonial
+            }
+        });
+
+        // Star rating functionality
+        document.querySelectorAll('.star-rating i').forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.dataset.rating);
+                const stars = this.parentNode.children;
+                
+                for (let i = 0; i < stars.length; i++) {
+                    if (i < rating) {
+                        stars[i].classList.remove('far');
+                        stars[i].classList.add('fas');
+                    } else {
+                        stars[i].classList.remove('fas');
+                        stars[i].classList.add('far');
+                    }
+                }
+            });
+        });
+
+        function resetStarRating() {
+            document.querySelectorAll('.star-rating i').forEach(star => {
+                star.classList.remove('fas');
+                star.classList.add('far');
+            });
+        }
+
+        // --- Admin Panel Functions ---
+        let currentEditingProductId = null;
+
+        function loadAdminProducts() {
+            const adminProductListDiv = document.getElementById('adminProductList');
+            adminProductListDiv.innerHTML = '';
+            const products = getProducts();
+
+            products.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('admin-item');
+                productItem.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <p>Harga: ${product.price}</p>
+                    <p>Deskripsi: ${product.description.replace(/<br>/g, ' ')}</p>
+                    <p>Link Pesan: <a href="${product.orderLink}" target="_blank">${product.orderLink}</a></p>
+                    <button class="edit-btn" onclick="editProduct('${product.id}')">Edit</button>
+                    <button class="delete-btn" onclick="deleteProduct('${product.id}')">Hapus</button>
+                `;
+                adminProductListDiv.appendChild(productItem);
+            });
+        }
+
+        document.getElementById('adminProductForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('adminProductId').value;
+            const name = document.getElementById('adminProductName').value;
+            const price = document.getElementById('adminProductPrice').value;
+            const description = document.getElementById('adminProductDescription').value;
+            const orderLink = document.getElementById('adminProductOrderLink').value; // Get orderLink
+
+            let products = getProducts();
+
+            if (id) { // Editing existing product
+                const index = products.findIndex(p => p.id === id);
+                if (index !== -1) {
+                    products[index] = { ...products[index], name, price, description, orderLink }; // Save orderLink
+                }
+                currentEditingProductId = null;
+                document.getElementById('adminProductSubmitBtn').textContent = 'Tambah Produk';
+                document.getElementById('adminProductCancelBtn').style.display = 'none';
+            } else { // Adding new product
+                const newProduct = {
+                    id: 'prod' + Date.now(), // Simple unique ID
+                    name,
+                    price,
+                    description,
+                    orderLink // Save orderLink
+                };
+                products.push(newProduct);
+            }
+            saveProducts(products);
+            this.reset();
+            loadProducts(); // Update frontend product list
+            loadAdminProducts(); // Update admin product list
+        });
+
+        function editProduct(id) {
+            const products = getProducts();
+            const product = products.find(p => p.id === id);
+            if (product) {
+                document.getElementById('adminProductId').value = product.id;
+                document.getElementById('adminProductName').value = product.name;
+                document.getElementById('adminProductPrice').value = product.price;
+                document.getElementById('adminProductDescription').value = product.description.replace(/<br>/g, '\n'); // Convert <br> to newline for textarea
+                document.getElementById('adminProductOrderLink').value = product.orderLink; // Populate orderLink
+                
+                currentEditingProductId = product.id;
+                document.getElementById('adminProductSubmitBtn').textContent = 'Update Produk';
+                document.getElementById('adminProductCancelBtn').style.display = 'inline-block';
+                // Scroll to the form for editing
+                document.getElementById('adminProductForm').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        document.getElementById('adminProductCancelBtn').addEventListener('click', function() {
+            document.getElementById('adminProductForm').reset();
+            document.getElementById('adminProductId').value = '';
+            currentEditingProductId = null;
+            document.getElementById('adminProductSubmitBtn').textContent = 'Tambah Produk';
+            this.style.display = 'none';
+            document.getElementById('adminProductOrderLink').value = ''; // Clear orderLink
+        });
+
+        function deleteProduct(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus produk ini?')) {
+                let products = getProducts();
+                products = products.filter(p => p.id !== id);
+                saveProducts(products);
+                loadProducts(); // Update frontend product list
+                loadAdminProducts(); // Update admin product list
+                alert('Produk berhasil dihapus!');
+            }
+        }
+
+        // Admin Payment Form Functions
+        function loadAdminPaymentForm() {
+            const paymentData = getPaymentData();
+            document.getElementById('adminPaymentDanaNumber').value = paymentData.danaNumber;
+            document.getElementById('adminPaymentQrisLink').value = paymentData.qrisLink;
+        }
+
+        document.getElementById('adminPaymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const danaNumber = document.getElementById('adminPaymentDanaNumber').value;
+            const qrisLink = document.getElementById('adminPaymentQrisLink').value;
+            savePaymentData({ danaNumber, qrisLink });
+            alert('Data Pembayaran berhasil disimpan!');
+            loadPaymentDisplay(); // Update frontend display
+        });
+
+        // Admin Contact Form Functions
+        function loadAdminContactForm() {
+            const contactData = getContactData();
+            document.getElementById('adminContactEmail').value = contactData.email;
+            document.getElementById('adminContactPhone').value = contactData.phone;
+            document.getElementById('adminContactTelegram').value = contactData.telegram;
+        }
+
+        document.getElementById('adminContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminContactEmail').value;
+            const phone = document.getElementById('adminContactPhone').value;
+            const telegram = document.getElementById('adminContactTelegram').value;
+            saveContactData({ email, phone, telegram });
+            alert('Data Kontak berhasil disimpan!');
+            loadContactDisplay(); // Update frontend display
+        });
+
+        // Admin Marketplace Form Functions
+        function loadAdminMarketplaceForm() {
+            const marketplaceData = getMarketplaceData();
+            document.getElementById('adminMarketplaceWhatsappGroup').value = marketplaceData.whatsappGroup;
+            document.getElementById('adminMarketplaceTiktokShop').value = marketplaceData.tiktokShop;
+            document.getElementById('adminMarketplaceWhatsappChannel').value = marketplaceData.whatsappChannel;
+        }
+
+        document.getElementById('adminMarketplaceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const whatsappGroup = document.getElementById('adminMarketplaceWhatsappGroup').value;
+            const tiktokShop = document.getElementById('adminMarketplaceTiktokShop').value;
+            const whatsappChannel = document.getElementById('adminMarketplaceWhatsappChannel').value;
+            saveMarketplaceData({ whatsappGroup, tiktokShop, whatsappChannel });
+            alert('Data Marketplace berhasil disimpan!');
+            loadMarketplaceDisplay(); // Update frontend display
+        });
+
+        function loadAdminTestimonials() {
+            const adminTestimonialListDiv = document.getElementById('adminTestimonialList');
+            adminTestimonialListDiv.innerHTML = '';
+            const testimonials = getTestimonials();
+
+            testimonials.forEach(testimonial => {
+                const testimonialItem = document.createElement('div');
+                testimonialItem.classList.add('admin-item');
+                testimonialItem.innerHTML = `
+                    <h3>${testimonial.name}</h3>
+                    <p>Rating: ${'⭐'.repeat(testimonial.rating)}${'☆'.repeat(5 - testimonial.rating)}</p>
+                    <p>Komentar: "${testimonial.comment}"</p>
+                    <button class="delete-btn" onclick="deleteTestimonial('${testimonial.id}')">Hapus</button>
+                `;
+                adminTestimonialListDiv.appendChild(testimonialItem);
+            });
+        }
+
+        function deleteTestimonial(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus testimoni ini?')) {
+                let testimonials = getTestimonials();
+                testimonials = testimonials.filter(t => t.id !== id);
+                saveTestimonials(testimonials);
+                loadTestimonials(); // Update frontend testimonial list
+                loadAdminTestimonials(); // Update admin testimonial list
+                alert('Testimoni berhasil dihapus!');
+            }
+        }
+
+        // Fungsi untuk menghapus semua testimoni
+        function deleteAllTestimonials() {
+            if (confirm('Apakah Anda yakin ingin menghapus SEMUA testimoni? Tindakan ini tidak dapat dibatalkan!')) {
+                localStorage.removeItem(STORAGE_KEY_TESTIMONIALS); // Menghapus item dari localStorage
+                loadTestimonials(); // Memuat ulang daftar testimoni di frontend (akan kosong)
+                loadAdminTestimonials(); // Memuat ulang daftar testimoni di admin (akan kosong)
+                alert('Semua testimoni telah dihapus!');
+            }
+        }
+
+        // --- Admin Login Functions ---
+        function showAdminLogin() {
+            // Hide all other content sections
+            const contentSections = document.querySelectorAll('.content-section');
+            contentSections.forEach(section => {
+                section.classList.remove('active-content');
+                section.style.display = 'none'; // Ensure all are hidden
+            });
+
+            // Show the login form
+            const adminLoginForm = document.getElementById('adminLoginForm');
+            adminLoginForm.classList.add('active');
+            adminLoginForm.style.display = 'block'; // Ensure login form is visible
+            adminLoginForm.scrollIntoView({ behavior: 'smooth' });
+
+            // Clear any previous login status in localStorage to force re-login
+            localStorage.removeItem(STORAGE_KEY_ADMIN_LOGGED_IN);
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                localStorage.setItem(STORAGE_KEY_ADMIN_LOGGED_IN, 'true');
+                alert('Login Berhasil!');
+                document.getElementById('loginForm').reset(); // Clear form
+                showContent('adminPanel'); // Show admin panel
+            } else {
+                alert('Username atau Password salah!');
+            }
+        });
+
+        function logoutAdmin() {
+            if (confirm('Apakah Anda yakin ingin logout?')) {
+                localStorage.removeItem(STORAGE_KEY_ADMIN_LOGGED_IN);
+                alert('Anda telah logout.');
+                showContent('products'); // Redirect to products page or any default page
+            }
+        }
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // loadProducts(); // Load products on initial page load - REMOVED as per request
+            loadTestimonials(); // Load testimonials on initial page load
+            loadPaymentDisplay(); // Load payment data on initial page load
+            loadContactDisplay(); // Load contact data on initial page load
+            loadMarketplaceDisplay(); // Load marketplace data on initial page load
+        });
+    </script>
 </body>
 </html>
